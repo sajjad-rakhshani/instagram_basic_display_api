@@ -9,3 +9,18 @@ https://api.instagram.com/oauth/authorize?
   &scope=user_profile,user_media
   &response_type=code
 ```
+then user redirect to redirect-uri that you specify, then you can get users media as below:
+```php
+$client_id = '221728789576089';
+            $client_secret ='157aabd14052e19055413bfec4c29f6d';
+            $redirect_uri = 'https://ebrahimtaherkhani.ir/instaApiAuth';
+            $code = $_GET['code'];
+            $url = "https://api.instagram.com/oauth/access_token";
+            $access_token_parameters = array(
+                'client_id'                =>     $client_id,
+                'client_secret'            =>     $client_secret,
+                'grant_type'               =>     'authorization_code',
+                'redirect_uri'             =>     $redirect_uri,
+                'code'                     =>     $code
+            );
+```
